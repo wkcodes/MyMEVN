@@ -1,6 +1,6 @@
 # My MEVN App 
 
-Experimenting with Vue in a full stack.
+Experimenting with Vue in a full stack app.
 
 Experimenting with Travis. 
 
