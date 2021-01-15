@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const PostSchema = new Schema({
+const thingSchema = new Schema({
+
   title: {
     type: String,
     required: true,
@@ -11,15 +12,16 @@ const PostSchema = new Schema({
     type: String,
     required: true,
   },
+
 });
 
-PostSchema.methods.sayHi = () => {
+thingSchema.methods.sayHi = () => {
   let greeting = this.title
     ? 'Hi my name is ' + this.title
     : 'I aint got no name';
   console.log('Hi' + greeting);
 };
 
-const Model = mongoose.model('Model', PostSchema);
+const Model = mongoose.model('Model', thingSchema);
 
 module.exports = Model;
