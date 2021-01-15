@@ -1,14 +1,7 @@
-const express = require('express');
-const router = express.Router();
-
-const Post = require('../models/Post.js');
+const router = require('express').Router();
 
 let aye = { greeting: "ayyye", name: "spuds"}
 let howdy = "howdy";
-let coolPost = new Post({ title: "cool poast", description: "a real cool poast"});
-
-coolPost.sayHi();
-console.log(coolPost.title)
 
 // Get 
 router.get('/db', async (req, res) => {
@@ -26,9 +19,8 @@ router.get('/aye', async (req, res) => {
 });
 
 // Post
-router.post('/', (req, res) => {
-  let post = new Post(req.body)
-  post.save();
+router.post('/thing', (req, res) => {
+  
 })
 
 router.get("/findAll", (req, res) => {
