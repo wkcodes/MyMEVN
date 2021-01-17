@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const Thing = require('../models/thing.js');
+const Thing = require('../../models/thing.js');
 
 let howdy = "howdy";
 
-// Get 
+// Howdy
 router.get('/howdy', async (req, res) => {
     res.status(200).send(howdy);
     console.log(howdy)
@@ -11,21 +11,20 @@ router.get('/howdy', async (req, res) => {
 
 // Post
 router.post('/createThing', (req, res) => {
-    
+    console.log(req.body)
     let things = {
-        title: "anutha one",
-        description: "second test"
+        title: "should be thefourth one",
+        description: "tttt"
     }
     Thing.create(things).then((data) => {
         res.send(data)
     });
 })
 
-router.get("/findAll", (req, res) => {
+router.get("/findAll", async (req, res) => {
     Thing.find({}).then((data) => {
-        res.send(data)
+        res.json(data)
     })
-    //Model.find(req)
 })
 
 module.exports = router; 

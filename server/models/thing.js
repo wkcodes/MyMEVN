@@ -22,6 +22,6 @@ thingSchema.methods.sayHi = () => {
   console.log('Hi' + greeting);
 };
 
-const Model = mongoose.model('Model', thingSchema);
+const Thing = mongoose.model('Thing', thingSchema);
 
-module.exports = Model;
+module.exports = Thing;

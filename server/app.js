@@ -1,23 +1,24 @@
-// Dependencies
+// Env 
 require('dotenv').config();
 
+// Express
 const express = require('express');
-const routes = require('./routes');
-const mongoose = require('mongoose');
-const PORT = process.env.PORT || 3000;
-
 const app = express();
+app.use(express.urlencoded({ extended: false }));
 
-// routes
+// Routes
+const routes = require('./routes');
 app.use(routes);
 
-// database 
+// Mongoose 
+const mongoose = require('mongoose');
 mongoose.connect(process.env.DB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-// listen
+// Listen
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
 );
