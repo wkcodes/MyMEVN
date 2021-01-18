@@ -1,10 +1,24 @@
-// Env 
+// Deps
 require('dotenv').config();
-
-// Express
 const express = require('express');
+const cors = require('cors');
+const passport = require('passport');
+const passportLocal = require('passport-local').Strategy;
+const cookieParser = require('cookie-parser');
+const bcrypt = require('bcrypt');
+const expressSession = require('express-session');
+const bodyParser = require('body-parser');
+
 const app = express();
-app.use(express.urlencoded({ extended: false }));
+
+// Middleware
+app.use(expressSession({secret: 'mySecretKey', resave: true, saveUninitialized: true}));
+app.use(cors({ origin: process.env.PORT, credentials: true}));
+app.use(cookieParser('mySecretKey'));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 const routes = require('./routes');
