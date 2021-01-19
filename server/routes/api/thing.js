@@ -10,7 +10,7 @@ router.get('/howdy', async (req, res) => {
 });
 
 // Post
-router.post('/createThing', (req, res) => {
+router.post('/createThing',  (req, res) => {
     console.log(req.body)
     let things = {
         title: "should be thefourth one",
@@ -21,7 +21,7 @@ router.post('/createThing', (req, res) => {
     });
 })
 
-router.get("/findAll", async (req, res) => {
+router.get("/findAllThings", async (req, res) => {
     Thing.find({}).then((data) => {
         res.json(data)
     })
