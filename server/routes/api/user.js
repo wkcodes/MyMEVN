@@ -42,16 +42,21 @@ router.get('/login', async (req, res) => {
   console.log('login');
 });
 
-// secret route
+// secret route, only accessible with jwt
 router.get('/secret', passport.authenticate('jwt',{session: false}),(req,res,next)=>{
     res.json("Secret Data")
   })
 
 // get all users
 router.get('/findAllUsers', async (req, res) => {
+    try{
   User.find({}).then((data) => {
     res.json(data);
   });
+}
+catch{
+    res.status(500)
+}
 });
 
 module.exports = router;
