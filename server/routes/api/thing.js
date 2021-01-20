@@ -34,7 +34,7 @@ var options = {
   url: 'https://hargrimm-wikihow-v1.p.rapidapi.com/steps',
   params: {count: '3'},
   headers: {
-    'x-rapidapi-key': '57efff2aa5msha7b1ef55b66c789p1cd9fbjsnd90eb24361fb',
+    'x-rapidapi-key': process.env.WIKIHOWAPI,
     'x-rapidapi-host': 'hargrimm-wikihow-v1.p.rapidapi.com'
   }
 };
